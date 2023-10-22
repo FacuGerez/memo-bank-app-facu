@@ -12,15 +12,13 @@ public class Transaction {
 
     private Double amount;
 
-    private LocalDateTime where;
-
     @ManyToOne
+    @JoinColumn(name = "account_id")
     private Account account;
 
     public Transaction(Double amount, Account account) {
         this.amount = amount;
         this.account = account;
-        where = LocalDateTime.now();
     }
     public Transaction(){}
 
@@ -38,14 +36,6 @@ public class Transaction {
 
     public void setAmount(Double amount) {
         this.amount = amount;
-    }
-
-    public LocalDateTime getWhere() {
-        return where;
-    }
-
-    public void setWhere(LocalDateTime where) {
-        this.where = where;
     }
 
 }
