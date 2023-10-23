@@ -66,11 +66,7 @@ public class Memo1BankApp {
 
 	@DeleteMapping("/accounts/{cbu}")
 	public void deleteAccount(@PathVariable Long cbu) {
-		/*for (Transaction t : accountService.getTransactions(cbu)){
-			transactionService.deleteById(t.getId(),cbu);
-		}*/
 		accountService.deleteById(cbu);
-
 	}
 
 	@PutMapping("/accounts/{cbu}/withdraw")
