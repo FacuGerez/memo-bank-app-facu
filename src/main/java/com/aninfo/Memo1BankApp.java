@@ -16,7 +16,6 @@ import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
 import java.util.Collection;
 import java.util.Optional;
 
@@ -66,11 +65,7 @@ public class Memo1BankApp {
 
 	@DeleteMapping("/accounts/{cbu}")
 	public void deleteAccount(@PathVariable Long cbu) {
-		/*for (Transaction t : accountService.getTransactions(cbu)){
-			transactionService.deleteById(t.getId(),cbu);
-		}*/
 		accountService.deleteById(cbu);
-
 	}
 
 	@PutMapping("/accounts/{cbu}/withdraw")
