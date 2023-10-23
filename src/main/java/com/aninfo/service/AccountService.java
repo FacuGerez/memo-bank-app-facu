@@ -34,7 +34,6 @@ public class AccountService {
     }
 
     public void deleteById(Long cbu) {
-        this.getTransactions(cbu).forEach(t-> this.deleteTransactionById(t.getId(),cbu));
         accountRepository.deleteById(cbu);
     }
 
