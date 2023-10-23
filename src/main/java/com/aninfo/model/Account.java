@@ -13,6 +13,8 @@ public class Account {
 
     private Double balance;
 
+    private Double limitPromo;
+
     @OneToMany
     private Collection<Transaction> transactionList = new HashSet<>();
 
@@ -53,4 +55,11 @@ public class Account {
         return transactionList;
     }
 
+    public Double getLimitPromo() {
+        return limitPromo;
+    }
+
+    public void setLimitPromo(Double limitPromo) {
+        this.limitPromo = limitPromo;
+    }
 }
