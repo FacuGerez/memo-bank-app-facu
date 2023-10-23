@@ -1,8 +1,8 @@
 package com.aninfo.model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.HashSet;
 
 @Entity
 public class Account {
@@ -13,8 +13,8 @@ public class Account {
 
     private Double balance;
 
-    @OneToMany(mappedBy = "account")
-    private List<Transaction> transactionList = new ArrayList<>();
+    @OneToMany
+    private Collection<Transaction> transactionList = new HashSet<>();
 
     public Account(){
     }
@@ -37,6 +37,20 @@ public class Account {
 
     public void setBalance(Double balance) {
         this.balance = balance;
+    }
+
+    public void addTransaccion(Transaction transaction) {
+        if (transaction != null){
+            transactionList.add(transaction);
+        }
+    }
+
+    public void removeTransaccion(Long id) {
+        transactionList.removeIf(t->t.getId().equals(id));
+    }
+
+    public Collection<Transaction> getTransaccions() {
+        return transactionList;
     }
 
 }

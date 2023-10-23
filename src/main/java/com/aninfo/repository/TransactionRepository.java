@@ -8,6 +8,7 @@ import java.util.List;
 
 @RepositoryRestResource
 public interface TransactionRepository extends CrudRepository<Transaction, Long> {
+    Transaction findAccountById(Long id);
     @Override
     List<Transaction> findAll();
 }

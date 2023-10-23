@@ -5,7 +5,7 @@ import com.aninfo.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Collection;
 import java.util.Optional;
 
 @Service
@@ -17,15 +17,11 @@ public class TransactionService {
         return transactionRepository.save(transaction);
     }
 
-    public List<Transaction> getTransaction() {
-        return transactionRepository.findAll();
+    public Optional<Transaction> serchTransactionById (Collection<Transaction> transactions, Long id){
+        return transactions.stream().filter(t->t.getId().equals(id)).findFirst();
     }
-
-    public Optional<Transaction> findById(Long id) {
-        return transactionRepository.findById(id);
-    }
-
     public void deleteById(Long id) {
         transactionRepository.deleteById(id);
     }
+
 }

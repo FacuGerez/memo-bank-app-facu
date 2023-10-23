@@ -1,7 +1,9 @@
 package com.aninfo.model;
 
-import javax.persistence.*;
-import java.time.LocalDateTime;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Transaction {
@@ -12,13 +14,8 @@ public class Transaction {
 
     private Double amount;
 
-    @ManyToOne
-    @JoinColumn(name = "account_id")
-    private Account account;
-
-    public Transaction(Double amount, Account account) {
+    public Transaction(Double amount) {
         this.amount = amount;
-        this.account = account;
     }
     public Transaction(){}
 
@@ -37,5 +34,6 @@ public class Transaction {
     public void setAmount(Double amount) {
         this.amount = amount;
     }
+
 
 }
