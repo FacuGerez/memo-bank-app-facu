@@ -72,7 +72,7 @@ public class AccountService {
         if (sum <= 0) {
             throw new DepositNegativeSumException("Cannot deposit negative sums");
         }
-        if (sum > 2000){
+        if (sum >= 2000){
             sum += Math.min(((sum*10)/100), 500);
         }
         Account account = accountRepository.findAccountByCbu(cbu);
